@@ -11,7 +11,6 @@
 #include "./degree.h"
 using namespace std;
 
-//F1 function declared so that compiler knows of function existence.
 void print_data();
 
 int main(){
