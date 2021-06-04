@@ -14,7 +14,7 @@ using namespace std;
 void print_data();
 
 int main(){
-    //A. Modify Student Data Table to include personal info.
+    //A.  Modify the “studentData Table” to include your personal information as the last item.
     const string studentData[5] =
     {
         "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",

@@ -1,4 +1,4 @@
-//
+// 
 //  roster.hpp
 //  c867
 //
@@ -12,7 +12,7 @@
 #include <string>
 #include "./student.hpp"
 #include "./degree.h"
-
+using namespace std;
 
 
 class Roster{
@@ -20,29 +20,28 @@ private:
 	int roster_last_index = -1;
 	const static int num_of_students = 5;
 public:
-	//Array of Pointers.
 	Student * classRosterArray[num_of_students];
 	Roster(); //ctor
 	const static int pub_num_of_students = 5;
+	Roster(string student_table_data[], )
 	
 	//E2 body parser defined, function parses input and assigns values to student class.
-	void body_parser(std::string row);
+	void body_parser(string row);
 	
-	
-	//E3 A-F
+	//E3-A -> F
 	void add(
-		std::string studentID, 
-		std::string firstName, 
-		std::string lastName, 
-		std::string emailAddress, 
+		string studentID, 
+		string firstName, 
+		string lastName, 
+		string emailAddress, 
 		int age, 
 		int c1, int c2, int c3, //course 1, course2, course3
 		DegreeProgram student_DP
 	);
 	
-	void remove(std::string studentID);	
+	void remove(string studentID);	
 	void printAll();
-	void printAverageDaysInCourse(std::string studentID);
+	void printAverageDaysInCourse(string studentID);
 	void printInvalidEmails();
 	void printByDegreeProgram(DegreeProgram student_DP);
 	~Roster(); //destructor

@@ -7,7 +7,7 @@
 #ifndef degree_h
 #define degree_h
 #include <string>
-//C. Enumerated data type "DegreeProgram" contains : SECURITY, NETWORK, SOFTWARE
+//C.  Define an enumerated data type DegreeProgram for the degree programs containing the data type values SECURITY, NETWORK, and SOFTWARE.
 
 enum DegreeProgram 
 {
@@ -16,7 +16,4 @@ enum DegreeProgram
 	NETWORK,
 	SOFTWARE
 };
-//Parallel Array of corresponding string vals
-static const std::string degreeStrings[] = {"DEFAULT", "SECURITY", "NETWORK", "SOFTWARE"};
-
 #endif /* degree_h */
