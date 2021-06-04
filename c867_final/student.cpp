@@ -8,15 +8,15 @@
 
 
 //D2-d Constructor using all params of input table.
-Student::Student(std::string student_ID, std::string first_name, std::string last_name, std::string email_address, int age, int c1, int c2, int c3, DegreeProgram student_DP){
+Student::Student(std::string student_ID, std::string first_name, std::string last_name, std::string email_address, int age, int daysToComplete[], DegreeProgram student_DP){
 	this -> student_ID = student_ID;
 	this -> first_name = first_name;
 	this -> last_name = last_name;
 	this -> email_address = email_address;
 	this -> age = age;
-	this -> days_to_complete[0] = c1;
-	this -> days_to_complete[1] = c2;
-	this -> days_to_complete[2] = c3;
+	this -> days_to_complete[0] = daysToComplete[0];
+	this -> days_to_complete[1] = daysToComplete[1];
+	this -> days_to_complete[2] = daysToComplete[2];
 	this -> student_DP = student_DP;
 }
 
@@ -27,12 +27,11 @@ Student::~Student(){
 
 //D2-e Student print() specific values
 void Student::print(){
-	std::cout << "Student ID: " << student_ID << std::endl;
-	std::cout << "First Name: " << first_name << std::endl;
-	std::cout << "Last Name: " << last_name << std::endl;
-	std::cout << "Email: " << email_address << std::endl; 
-	std::cout << "Age: " << age << std::endl;
-	std::cout << "Days Left In Courses: " << days_to_complete[0] << ", " << days_to_complete[1] << ", " << days_to_complete[2] << std::endl;
+	std::cout << student_ID  << "\t";
+	std::cout << "First Name: " << first_name << "\t";
+	std::cout << "Last Name: " << last_name << "\t";
+	std::cout << "Age: " << age << "\t";
+	std::cout << "Days Left In Courses: {" << days_to_complete[0] << ", " << days_to_complete[1] << ", " << days_to_complete[2] << "}\t ";
 	switch(student_DP){
 		case 0: //default
 			std::cout << "Degree Program: DEFAULT" << std::endl;
@@ -101,10 +100,10 @@ void Student::set_age(int new_age){
 	age = new_age;
 }
 
-void Student::set_days_to_complete(int c1, int c2, int c3){
-	days_to_complete[0] = c1;
-	days_to_complete[1] = c2;
-	days_to_complete[2] = c3;
+void Student::set_days_to_complete(int daysToComplete[]){
+	days_to_complete[0] = daysToComplete[0];
+	days_to_complete[1] = daysToComplete[1];
+	days_to_complete[2] = daysToComplete[2];
 }
 
 void Student::set_degree_program(DegreeProgram new_degree_program){

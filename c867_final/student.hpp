@@ -13,7 +13,7 @@
 class Student{
 public:
 	//D2-d Constructor using all Params of student table:
-	Student(std::string student_ID, std::string first_name, std::string last_name, std::string email_address, int age, int c1, int c2, int c3, DegreeProgram student_DP);
+	Student(std::string student_ID, std::string first_name, std::string last_name, std::string email_address, int age, int daysToComplete[], DegreeProgram student_DP);
 	
 	~Student();
 	

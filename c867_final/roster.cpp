@@ -55,16 +55,8 @@ void Roster::remove(std::string studentID){
 }
 
 void Roster::printAll(){
-	for(int i = 0; i <= Roster::roster_last_index; i++){
-		std::cout << classRosterArray[i]-> get_student_ID(); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_first_name(); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_last_name(); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_email(); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_age(); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_days_to_complete(0); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_days_to_complete(1); std::cout <<'\t';
-		std::cout << classRosterArray[i]-> get_days_to_complete(2); std::cout <<'\t';
-		std::cout << degreeStrings[classRosterArray[i]-> get_degree_program()] << std::endl;
+	for(int i = 0; i <= Roster::num_of_students; i++){
+		std::cout << classRosterArray[i]-> print();
 	}
 }
 
