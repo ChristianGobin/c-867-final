@@ -28,7 +28,7 @@ Roster::~Roster(){
 
 void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int c1, int c2, int c3, DegreeProgram student_DP){
 	//append new student to end of classRosterArray.
-	classRosterArray[++roster_last_index] = new Student(studentID, firstName, lastName, emailAddress, age, c1, c2, c3, student_DP);
+	classRosterArray[++roster_last_index] = new Student(string student_ID, string first_name, string last_name, string email_address, int age, int daysToComplete[], DegreeProgram student_DP);
 }
 
 void Roster::remove(std::string studentID){
