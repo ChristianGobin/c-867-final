@@ -22,7 +22,7 @@ Student::Student(string student_ID, string first_name, string last_name, string 
 		i++;
 	}
 }
-
+//needs to take 3 ints and push to array in obj properties
 Student::~Student(){
 	return;
 }
@@ -129,7 +129,7 @@ DegreeProgram student_DP;
 •   last name
 •  email address
 •  age
-•  array of number of days to complete each course
+•  3 array of numbers of days to complete each course
 •  degree program
 2.  Create each of the following functions in the Student class:
 a.  an accessor (i.e., getter) for each instance variable from part D1
