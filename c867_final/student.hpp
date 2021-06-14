@@ -47,7 +47,7 @@ private:
 	string last_name;
 	string email_address;
 	int age;
-	int * days_to_complete;
+	int* days_to_complete; //better style for pointer dec.
 	DegreeProgram student_DP;
 };
 
