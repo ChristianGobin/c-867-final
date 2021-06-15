@@ -16,6 +16,7 @@ Student::Student(string student_ID, string first_name, string last_name, string 
 	this -> email_address = email_address;
 	this -> age = age;
 	this -> student_DP = student_DP;
+	this -> days_to_complete = new int[max_courses];
 	int i = 0;
 	while(i < max_courses){
 		this->days_to_complete[i] = daysToComplete[i];
