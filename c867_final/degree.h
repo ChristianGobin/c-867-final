@@ -11,7 +11,6 @@
 
 enum DegreeProgram 
 {
-	DEFAULT, //used for default constructor in student class.
 	SECURITY,
 	NETWORK,
 	SOFTWARE

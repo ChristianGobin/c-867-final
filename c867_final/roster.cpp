@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <string>
-
+using namespace std;
 //E1 - E2
 //Array of pointers that are Student objects.
 //Constructor
