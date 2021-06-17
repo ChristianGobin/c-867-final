@@ -34,7 +34,9 @@ public:
 		string lastName, 
 		string emailAddress, 
 		int age, 
-		int days_to_complete[3],
+		int c1, 
+		int c2, 
+		int c3,
 		DegreeProgram student_DP
 	);
 	

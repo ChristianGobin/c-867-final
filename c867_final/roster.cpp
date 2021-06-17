@@ -26,8 +26,9 @@ Roster::~Roster(){
 };
 
 
-void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int days_to_complete[], DegreeProgram student_DP){
+void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int c1, int c2, int c3, DegreeProgram student_DP){
 	//append new student to end of classRosterArray.
+	int days_to_complete[3] {c1, c2 , c3};
 	classRosterArray[++roster_last_index] = new Student(studentID, firstName, lastName, emailAddress, age, days_to_complete, student_DP);
 }
 
@@ -55,8 +56,8 @@ void Roster::remove(std::string studentID){
 }
 
 void Roster::printAll(){
-	for(int i = 0; i <= Roster::num_of_students; i++){
-		std::cout << classRosterArray[i]-> print() << endl;
+	for(int i = 0; i < Roster::pub_num_of_students; i++){
+		classRosterArray[i]->print();
 	}
 }
 
@@ -67,8 +68,11 @@ void Roster::printAll(){
 void Roster::printAverageDaysInCourse(std::string studentID){
     for(int i = 0; i <= Roster::roster_last_index; i++){
         if(studentID == classRosterArray[i]->get_student_ID()){
-            int averageDays = (classRosterArray[i]->get_days_to_complete(0) + classRosterArray[i]->get_days_to_complete(1) + classRosterArray[i]->get_days_to_complete(2)) / 3;
-            std::cout << "Average Days left for Student: " << classRosterArray[i]->get_student_ID() << ": " << averageDays << std::endl;
+			//point at array of student with matching ID.
+			//access values of array and calculate average.
+			int* array_of_days = classRosterArray[i]->get_days_to_complete();
+			int averageDays = (array_of_days[0] + array_of_days[1] + array_of_days[2]) / 3;
+			std::cout << "Average Days left for Student: " << classRosterArray[i]->get_student_ID() << ": " << averageDays << std::endl;
             break;//stop loop when we find the correct ID.
         }
     }
@@ -160,7 +164,7 @@ void Roster::body_parser(std::string row){
 	
 	int days_to_complete[3] = {c1, c2, c3}; // add parsed days to complete to array.
 	//creates student object using the above defined variables.
-	add(studentID, firstName, lastName, emailAddress, age, days_to_complete, studentDP);
+	add(studentID, firstName, lastName, emailAddress, age, c1, c2, c3, studentDP);
 
 };
 
