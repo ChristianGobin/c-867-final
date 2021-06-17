@@ -23,7 +23,6 @@ public:
 	Student * classRosterArray[num_of_students];
 	Roster(); //ctor
 	const static int pub_num_of_students = 5;
-	Roster(string student_table_data[], )
 	
 	//E2 body parser defined, function parses input and assigns values to student class.
 	void body_parser(string row);
@@ -35,7 +34,7 @@ public:
 		string lastName, 
 		string emailAddress, 
 		int age, 
-		int c1, int c2, int c3, //course 1, course2, course3
+		int days_to_complete[3],
 		DegreeProgram student_DP
 	);
 	

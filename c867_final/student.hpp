@@ -13,10 +13,9 @@
 #include "degree.h"
 using namespace std;
 class Student{
-    
+public:
     //D2-D: constructor using all of the input parameters provided in the table
     Student(string student_ID, string first_name, string last_name, string email_address, int age, int daysToComplete[], DegreeProgram student_DP);
-    
     ~Student();
     
     //D2-A: an accessor (i.e., getter) for each instance variable from part D1

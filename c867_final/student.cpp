@@ -24,7 +24,7 @@ Student::Student(string student_ID, string first_name, string last_name, string 
 	//Revision, take array instead of 3 individual ints.
 	this->days_to_complete = new int [3]; // allocate memory for new array with length of 3
 	for(int i = 0; i < 3; i++){ //iterate through array given in constructor
-		this->days_to_complete[i] = daysToComplete[i]; //set each space of new array equal to given array values.
+		this->days_to_complete[i] = daysToComplete[i]; //set each memory space of new array equal to given array values.
 	}
 }
 

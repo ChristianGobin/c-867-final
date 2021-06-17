@@ -26,9 +26,9 @@ Roster::~Roster(){
 };
 
 
-void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int c1, int c2, int c3, DegreeProgram student_DP){
+void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int days_to_complete[], DegreeProgram student_DP){
 	//append new student to end of classRosterArray.
-	classRosterArray[++roster_last_index] = new Student(string student_ID, string first_name, string last_name, string email_address, int age, int daysToComplete[], DegreeProgram student_DP);
+	classRosterArray[++roster_last_index] = new Student(studentID, firstName, lastName, emailAddress, age, days_to_complete, student_DP);
 }
 
 void Roster::remove(std::string studentID){
@@ -56,7 +56,7 @@ void Roster::remove(std::string studentID){
 
 void Roster::printAll(){
 	for(int i = 0; i <= Roster::num_of_students; i++){
-		std::cout << classRosterArray[i]-> print();
+		std::cout << classRosterArray[i]-> print() << endl;
 	}
 }
 
@@ -150,9 +150,7 @@ void Roster::body_parser(std::string row){
 	std::string student_DP = row.substr(lhs, rhs - lhs);
 	//determine degree program using string values.
 	DegreeProgram studentDP;
-	if(student_DP == "DEFAULT"){
-		studentDP = DEFAULT;
-	} else if(student_DP == "SECURITY"){
+	if(student_DP == "SECURITY"){
 		studentDP = SECURITY;
 	} else if(student_DP == "NETWORK"){
 		studentDP = NETWORK;
@@ -160,8 +158,9 @@ void Roster::body_parser(std::string row){
 		studentDP = SOFTWARE;
 	}
 	
+	int days_to_complete[3] = {c1, c2, c3}; // add parsed days to complete to array.
 	//creates student object using the above defined variables.
-	add(studentID, firstName, lastName, emailAddress, age, c1, c2, c3, studentDP);
+	add(studentID, firstName, lastName, emailAddress, age, days_to_complete, studentDP);
 
 };
 
