@@ -25,13 +25,20 @@ Roster::~Roster(){
 	}
 };
 
-
-void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int c1, int c2, int c3, DegreeProgram student_DP){
-	//append new student to end of classRosterArray.
-	int days_to_complete[3] {c1, c2 , c3};
+/*
+E3 - A. public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int
+	daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)  that sets the
+	instance variables from part D1 and updates the roster.
+*/
+void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram student_DP){
+	int days_to_complete[3] {daysInCourse1, daysInCourse2 , daysInCourse3};
 	classRosterArray[++roster_last_index] = new Student(studentID, firstName, lastName, emailAddress, age, days_to_complete, student_DP);
 }
 
+/*
+E3 - B. public void remove(string studentID)  that removes students from the roster by student ID. 
+		If the student ID does not exist, the function prints an error message indicating that the student was not found.
+*/
 void Roster::remove(std::string studentID){
 	bool success = false; //assume student not there
 	for(int i = 0; i <= Roster::roster_last_index; i++){
@@ -55,16 +62,20 @@ void Roster::remove(std::string studentID){
 	}
 }
 
+/*
+E3 - C. public void printAll() that prints a complete tab-separated list of student data in the provided format: A1 [tab] First Name: John [tab] Last Name: Smith [tab] Age: 20 [tab]daysInCourse: {35, 40, 55} Degree Program: Security. The printAll() function should loop through all the students in classRosterArray and call the print() function for each student.
+*/
 void Roster::printAll(){
 	for(int i = 0; i < Roster::pub_num_of_students; i++){
 		classRosterArray[i]->print();
 	}
 }
 
-//iterate through each student object in class roster array
-//if studentID matches given studentID:
-//				add each value of days left to complete array to total days int
-//				then calculate avg days and cout avg.
+/*
+E3 - D.  public void printAverageDaysInCourse(string studentID)  that correctly prints a student’s average number of days in the
+	three courses. The student is identified by the studentID parameter.
+
+*/
 void Roster::printAverageDaysInCourse(std::string studentID){
     for(int i = 0; i <= Roster::roster_last_index; i++){
         if(studentID == classRosterArray[i]->get_student_ID()){
@@ -79,13 +90,9 @@ void Roster::printAverageDaysInCourse(std::string studentID){
 }
 
 //Valid email must include '@' and '.'
-//Display invalid emails.
+//E3 - E.  public void printInvalidEmails() that verifies student email addresses and displays all invalid email addresses to the user.
 void Roster::printInvalidEmails(){
 	bool any = false; //assume no invalid emails.
-	//loop through each student obj in class roster
-	//set student email to string
-	//check each student email for required chars @ and . 
-	//also check for space character
 	for(int i = 0; i <= Roster::roster_last_index; i++){
 		std::string student_email = (classRosterArray[i]->get_email());
 		if(student_email.find('@') == std::string::npos || (student_email.find('.') == std::string::npos || (student_email.find(' ') != std::string::npos))){
@@ -97,7 +104,11 @@ void Roster::printInvalidEmails(){
 		std::cout << "NONE FOUND" << std::endl;
 	}
 }
+/*
 
+E3 - F.  public void printByDegreeProgram(DegreeProgram degreeProgram) that prints out student information for a degree program
+	specified by an enumerated type.
+*/
 void Roster::printByDegreeProgram(DegreeProgram student_DP){
 	for(int i = 0; i <= Roster::roster_last_index; i++){
 		if(Roster::classRosterArray[i]-> get_degree_program() == student_DP){
@@ -107,11 +118,10 @@ void Roster::printByDegreeProgram(DegreeProgram student_DP){
 	} 
 	std::cout << std::endl;
 }
-//Format of string to be parsed.
-//ID, First, Last, Email, Age, C1, c2, c3, Degree
 
 //parse row of string data and store values to later create object.
 /*
+E2 - A.  Parse each set of data identified in the “studentData Table.”
  Basic function:
  find location in string of the commas.
  assign data found to left and right of comma to appropriate properties.
@@ -139,15 +149,15 @@ void Roster::body_parser(std::string row){
 	
 	lhs = rhs + 1;
 	rhs = row.find(",", lhs);
-	int c1 = stoi(row.substr(lhs, rhs - lhs)); //Course 1
+	int daysInCourse1 = stoi(row.substr(lhs, rhs - lhs)); //Course 1
 	
 	lhs = rhs + 1;
 	rhs = row.find(",", lhs);
-	int c2 = stoi(row.substr(lhs, rhs - lhs)); //Course 2
+	int daysInCourse2 = stoi(row.substr(lhs, rhs - lhs)); //Course 2
 	
 	lhs = rhs + 1;
 	rhs = row.find(",", lhs);
-	int c3 = stoi(row.substr(lhs, rhs - lhs)); //Course 3
+	int daysInCourse3 = stoi(row.substr(lhs, rhs - lhs)); //Course 3
 	
 	lhs = rhs + 1;
 	rhs = row.find(",", lhs);
@@ -162,9 +172,9 @@ void Roster::body_parser(std::string row){
 		studentDP = SOFTWARE;
 	}
 	
-	int days_to_complete[3] = {c1, c2, c3}; // add parsed days to complete to array.
+	int days_to_complete[3] = {daysInCourse1, daysInCourse2, daysInCourse3}; // add parsed days to complete to array.
 	//creates student object using the above defined variables.
-	add(studentID, firstName, lastName, emailAddress, age, c1, c2, c3, studentDP);
+	add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, studentDP);
 
 };
 

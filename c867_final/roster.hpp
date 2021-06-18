@@ -20,6 +20,7 @@ private:
 	int roster_last_index = -1;
 	const static int num_of_students = 5;
 public:
+	//E2. Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”
 	Student * classRosterArray[num_of_students];
 	Roster(); //ctor
 	const static int pub_num_of_students = 5;
